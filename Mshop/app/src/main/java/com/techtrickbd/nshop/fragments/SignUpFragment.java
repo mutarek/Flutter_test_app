@@ -1,6 +1,7 @@
 package com.techtrickbd.nshop.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.chaos.view.PinView;
 import com.techtrickbd.nshop.R;
+import com.techtrickbd.nshop.activities.HomeActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -24,11 +27,10 @@ public class SignUpFragment extends Fragment {
     public SignUpFragment() {
         // Required empty public constructor
     }
-
     private EditText numberEt;
     private Button btnNext;
     private View view;
-    private Context context;
+    private PinView pinView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,15 +68,32 @@ public class SignUpFragment extends Fragment {
         }
         else
         {
-            
+            sendOTP();
         }
 
 
     }
 
+    private void sendOTP() {
+        numberEt.setVisibility(View.GONE);
+        pinView.setVisibility(View.VISIBLE);
+        btnNext.setText("Verify");
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goForVerify();
+            }
+        });
+    }
+
+    private void goForVerify() {
+        startActivity(new Intent(getContext(), HomeActivity.class));
+    }
+
     private void casting(View view) {
         numberEt = view.findViewById(R.id.number_ET);
         btnNext = view.findViewById(R.id.btn_next);
+        pinView = view.findViewById(R.id.firstPinView);
     }
 
     @Override

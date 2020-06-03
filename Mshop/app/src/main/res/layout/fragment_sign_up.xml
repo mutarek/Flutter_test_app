@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.SignUpFragment">
 
@@ -41,6 +42,51 @@
             android:paddingLeft="15dp"
             android:textColorHint="@android:color/black" />
 
+        <EditText
+            android:id="@+id/game_id"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
+            android:background="@drawable/etshape"
+            android:hint="Game ID"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColorHint="@android:color/black"
+            android:visibility="gone"/>
+
+
+        <com.chaos.view.PinView
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="Hint."
+            android:itemBackground="@drawable/btnroundshapebg"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@android:color/holo_red_dark"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="48dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="0dp"
+            app:itemWidth="48dp"
+            app:lineColor="@android:color/holo_blue_dark"
+            app:lineWidth="2dp"
+            app:viewType="rectangle"
+            android:layout_gravity="end"
+            android:paddingLeft="15dp"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            />
+
         <Button
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"
@@ -54,6 +100,7 @@
             android:textSize="20sp" />
 
         <LinearLayout
+            android:id="@+id/termsID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
