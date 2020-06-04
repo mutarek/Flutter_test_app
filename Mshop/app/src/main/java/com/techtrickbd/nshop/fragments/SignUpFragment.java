@@ -31,6 +31,8 @@ public class SignUpFragment extends Fragment {
     private Button btnNext;
     private View view;
     private PinView pinView;
+    private EditText nameET;
+    private EditText gameET;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,13 +89,26 @@ public class SignUpFragment extends Fragment {
     }
 
     private void goForVerify() {
-        startActivity(new Intent(getContext(), HomeActivity.class));
+        pinView.setVisibility(View.GONE);
+        nameET.setVisibility(View.VISIBLE);
+        numberEt.setText(null);
+        gameET.setVisibility(View.VISIBLE);
+        btnNext.setText("Done");
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void casting(View view) {
         numberEt = view.findViewById(R.id.number_ET);
         btnNext = view.findViewById(R.id.btn_next);
         pinView = view.findViewById(R.id.firstPinView);
+        gameET = view.findViewById(R.id.game_id);
+        nameET = view.findViewById(R.id.name_ET);
     }
 
     @Override

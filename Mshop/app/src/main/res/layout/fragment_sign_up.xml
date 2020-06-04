@@ -43,6 +43,20 @@
             android:textColorHint="@android:color/black" />
 
         <EditText
+            android:id="@+id/name_ET"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
+            android:background="@drawable/etshape"
+            android:hint="Full Name"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:textColorHint="@android:color/black"
+            android:visibility="gone"/>
+
+        <EditText
             android:id="@+id/game_id"
             android:layout_width="300dp"
             android:layout_height="60dp"

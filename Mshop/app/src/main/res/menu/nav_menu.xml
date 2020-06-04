@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/earn_ID"
+        android:title="@string/earn"
+        android:icon="@drawable/ic_monetization_on_black_24dp"/>
+    <item
+        android:id="@+id/profile_id"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_account_circle_black_24dp"/>
+    <item
+        android:id="@+id/contact_id"
+        android:title="@string/contact"
+        android:icon="@drawable/ic_contacts_black_24dp"/>
+    <item
+        android:id="@+id/devs_id"
+        android:title="@string/devs"
+        android:icon="@drawable/ic_developer_mode_black_24dp"/>
+</menu>
