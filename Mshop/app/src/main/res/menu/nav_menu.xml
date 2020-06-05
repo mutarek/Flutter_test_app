@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/home_id"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/home"/>
-    <item
-        android:id="@+id/earn_ID"
-        android:icon="@drawable/ic_monetization_on_black_24dp"
-        android:title="@string/earn" />
-    <item
-        android:id="@+id/profile_id"
-        android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="@string/profile" />
-    <item
-        android:id="@+id/contact_id"
-        android:icon="@drawable/ic_contacts_black_24dp"
-        android:title="@string/contact" />
-    <item
-        android:id="@+id/devs_id"
-        android:icon="@drawable/ic_developer_mode_black_24dp"
-        android:title="@string/devs" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_id"
+            android:checkable="true"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/earn_ID"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:title="@string/earn" />
+        <item
+            android:id="@+id/profile_id"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/profile" />
+    </group>
 
-    <item
-        android:id="@+id/exit_id"
-        android:icon="@drawable/ic_close_black_24dp"
-        android:title="Exit" />
+
+    <group
+        android:id="@+id/contact_group"
+        android:checkableBehavior="single"
+        android:orderInCategory="@android:integer/config_mediumAnimTime">
+
+        <item
+            android:id="@+id/contact_id"
+            android:icon="@drawable/ic_contacts_black_24dp"
+            android:title="@string/contact" />
+        <item
+            android:id="@+id/devs_id"
+            android:icon="@drawable/ic_developer_mode_black_24dp"
+            android:title="@string/devs" />
+
+        <item
+            android:id="@+id/exit_id"
+            android:icon="@drawable/ic_close_black_24dp"
+            android:title="Exit" />
+
+    </group>
 </menu>

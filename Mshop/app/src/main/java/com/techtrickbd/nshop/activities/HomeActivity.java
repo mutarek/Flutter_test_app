@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
         View headerView = nav_view.getHeaderView(0);
         imageView = headerView.findViewById(R.id.profiel_image_id);
         username = headerView.findViewById(R.id.profile_users_name);
-        number = headerView.findViewById(R.id.profile_email_id);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         nav_view.setCheckedItem(R.id.home_id);
@@ -55,9 +54,9 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.profile_id:
 
                         break;
-                    /*case R.id.close:
+                    case R.id.exit_id:
                         finish();
-                        break;*/
+                        break;
                 }
 
                 drawerLayout.closeDrawer(GravityCompat.START);
