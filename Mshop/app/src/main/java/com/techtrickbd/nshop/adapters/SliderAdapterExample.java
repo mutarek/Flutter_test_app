@@ -50,7 +50,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(R.drawable.sliderone)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -88,7 +88,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(R.drawable.slider5)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -97,7 +97,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);
                 viewHolder.textViewDescription.setText("Item Five");*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(R.drawable.slider5)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
