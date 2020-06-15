@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FreeFireFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.LegecyofDiscordsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,14 +13,14 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_margin="5dp"
-            android:animationCache="true"
             app:cardCornerRadius="5dp"
             app:cardElevation="10dp"
             app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="5dp"
+            android:animationCache="true">
 
 
             <LinearLayout
@@ -33,23 +33,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="@string/enter_player_id"
+                    android:text="Enter Player ID"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/free_fire_player_ID"
-                    android:layout_width="200dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_margin="1dp"
-                    android:background="@drawable/etborder"
-                    android:hint="123456789"
-                    android:imeOptions="actionNext"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/black"
-                    android:singleLine="true"/>
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/etborder"
+                        android:hint="Enter ID"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/etborder"
+                        android:hint="Server Name"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black" />
+
+                </LinearLayout>
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -65,113 +80,134 @@ profile page in the app Example : 56456543"
 
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             app:cardCornerRadius="5dp"
             app:cardElevation="10dp"
             app:cardMaxElevation="12dp"
             app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"
-                    android:text="@string/select_recharge"
+                    android:text="Select Recharge :"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <RadioGroup
-                    android:id="@+id/free_fire_radio_group"
+                    android:id="@+id/select_radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="@string/_25_diamonds"
-                        android:textColor="@android:color/black"
-                        android:textSize="23sp"
-                        android:textStyle="bold" />
-
-                    <RadioButton
-                        android:id="@+id/free_fire_rb2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:text="@string/_50_diamonds"
-                        android:textColor="@android:color/black"
-                        android:textSize="23sp"
-                        android:textStyle="bold" />
-
-                    <RadioButton
-                        android:id="@+id/free_fire_rb3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:text="100 Diamonds"
+                        android:text="100 Diamonds 84 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="310 Diamonds"
+                        android:text="500 Diamonds 422 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="520 Diamonds"
+                        android:text="1000 Diamonds 844 BDT"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="1500 Diamonds 1266 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="1060 Diamonds"
+                        android:text="2000 Diamonds 1688 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="2180 Diamonds"
+                        android:text="3000 Diamonds 2532 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:id="@+id/free_fire_rb8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:text="5060 Diamonds"
+                        android:text="4000 Diamonds 3376 BDT"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="5000 Diamonds 4020 BDT"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="10000 Diamonds 8440 BDT"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="Hyper Pack 675 BDT"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="Monthly Card 675 BDT"
                         android:textColor="@android:color/black"
                         android:textSize="23sp"
                         android:textStyle="bold" />
@@ -187,14 +223,14 @@ profile page in the app Example : 56456543"
 
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_margin="5dp"
-            android:animationCache="true"
             app:cardCornerRadius="5dp"
             app:cardElevation="10dp"
             app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_margin="5dp"
+            android:animationCache="true">
 
 
             <LinearLayout
@@ -207,25 +243,21 @@ profile page in the app Example : 56456543"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="@string/select_payment"
+                    android:text="Select Payment"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:id="@+id/free_fire_payment_way_ET"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_margin="1dp"
                     android:background="@drawable/etborder"
-                    android:hint="@string/bkash_rocket"
-                    android:imeOptions="actionDone"
+                    android:hint="Bkash / Rocket"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/black"
-                    android:singleLine="true"
-                    android:autofillHints="@string/auto"/>
+                    android:textColorHint="@android:color/black" />
 
             </LinearLayout>
 
@@ -233,14 +265,14 @@ profile page in the app Example : 56456543"
 
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_margin="5dp"
-            android:animationCache="true"
             app:cardCornerRadius="5dp"
             app:cardElevation="10dp"
             app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_margin="5dp"
+            android:animationCache="true">
 
 
             <LinearLayout
@@ -253,20 +285,19 @@ profile page in the app Example : 56456543"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="@string/buy"
+                    android:text="Buy"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
 
                 <Button
-                    android:id="@+id/buyNow"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_margin="1dp"
                     android:background="@drawable/etborder"
-                    android:hint="@string/buy_now"
+                    android:hint="Buy Now"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textColorHint="@android:color/black"

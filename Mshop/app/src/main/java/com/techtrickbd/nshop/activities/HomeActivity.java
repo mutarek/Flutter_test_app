@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,7 +16,10 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.techtrickbd.nshop.R;
+import com.techtrickbd.nshop.fragments.EarmFragment;
+import com.techtrickbd.nshop.fragments.FreeFireFragment;
 import com.techtrickbd.nshop.fragments.HomeFragment;
+import com.techtrickbd.nshop.fragments.ProfileFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -49,10 +54,19 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.home_id:
-
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                        break;
+                    case R.id.earn_ID:
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, new EarmFragment(), "DetailFragment").commit();
+                        fragmentTransaction.addToBackStack(null);
                         break;
                     case R.id.profile_id:
-
+                        FragmentManager fm = getSupportFragmentManager();
+                        FragmentTransaction ft = fm.beginTransaction();
+                        ft.replace(R.id.fragment_container, new ProfileFragment(), "DetailFragment").commit();
+                        ft.addToBackStack(null);
                         break;
                     case R.id.exit_id:
                         finish();

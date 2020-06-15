@@ -42,34 +42,6 @@
             android:paddingLeft="15dp"
             android:textColorHint="@android:color/black" />
 
-        <EditText
-            android:id="@+id/name_ET"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="end"
-            android:layout_margin="20dp"
-            android:background="@drawable/etshape"
-            android:hint="Full Name"
-            android:imeOptions="actionNext"
-            android:inputType="textPersonName"
-            android:paddingLeft="15dp"
-            android:textColorHint="@android:color/black"
-            android:visibility="gone"/>
-
-        <EditText
-            android:id="@+id/game_id"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="end"
-            android:layout_margin="20dp"
-            android:background="@drawable/etshape"
-            android:hint="Game ID"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:paddingLeft="15dp"
-            android:textColorHint="@android:color/black"
-            android:visibility="gone"/>
-
 
         <com.chaos.view.PinView
             android:id="@+id/firstPinView"
@@ -103,8 +75,8 @@
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="end"
             android:layout_margin="20dp"
             android:background="@drawable/btnroundshapebg"
