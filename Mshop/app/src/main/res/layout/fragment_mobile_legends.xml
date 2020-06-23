@@ -38,6 +38,12 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -103,6 +109,12 @@ profile page in the app Example : 56456543"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
 
                 <RadioGroup
                     android:id="@+id/select_radio_group"
@@ -180,7 +192,7 @@ profile page in the app Example : 56456543"
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:animationCache="true"
             app:cardCornerRadius="5dp"
@@ -199,21 +211,67 @@ profile page in the app Example : 56456543"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="Select Payment"
+                    android:text="@string/select_payment"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@android:color/holo_red_light" />
 
-                <EditText
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="1dp"
-                    android:background="@drawable/etborder"
-                    android:hint="Bkash / Rocket"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/black" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/payment_rg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <RadioButton
+                            android:id="@+id/bkash_rb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Bkash"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rocket_rb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Rocket"
+                            android:textSize="20sp" />
+
+
+                        <RadioButton
+                            android:id="@+id/nagad_rb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Nagad"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/nwallet_rb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="N-Wallet"
+                            android:textSize="20sp" />
+
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -241,19 +299,26 @@ profile page in the app Example : 56456543"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="Buy"
+                    android:text="@string/buy"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
+
 
                 <Button
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/buyNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="1dp"
-                    android:background="@drawable/etborder"
-                    android:hint="Buy Now"
+                    android:background="@drawable/btnbg"
+                    android:hint="@string/buy_now"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textColorHint="@android:color/black"

@@ -5,15 +5,17 @@ public class Profile {
     private String email;
     private Integer coin;
     private String uid;
+    private Integer tk;
 
     public Profile() {
     }
 
-    public Profile(String name, String email, Integer coin, String uid) {
+    public Profile(String name, String email, Integer coin, String uid, Integer tk) {
         this.name = name;
         this.email = email;
         this.coin = coin;
         this.uid = uid;
+        this.tk = tk;
     }
 
     public String getName() {
@@ -47,4 +49,13 @@ public class Profile {
     public void setUid(String uid) {
         this.uid = uid;
     }
+
+    public Integer getTk() {
+        return tk;
+    }
+
+    public void setTk(Integer tk) {
+        this.tk = tk;
+    }
 }
+

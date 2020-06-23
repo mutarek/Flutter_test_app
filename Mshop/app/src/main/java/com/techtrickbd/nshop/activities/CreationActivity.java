@@ -83,16 +83,22 @@ public class CreationActivity extends AppCompatActivity {
         Profile profile = new Profile();
         profile.setName(sName);
         profile.setEmail(sEmail);
-        profile.setCoin(1);
+        profile.setCoin(0);
+        profile.setUid(cUser);
+        profile.setTk(0);
+
         db.collection("Users").document(cUser).set(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-
+                if (task.isSuccessful()) {
+                    Toasty.success(CreationActivity.this, "Successfully Account Created", Toast.LENGTH_SHORT).show();
+                    updateUI();
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toasty.error(CreationActivity.this, "Unsuccesfull:" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

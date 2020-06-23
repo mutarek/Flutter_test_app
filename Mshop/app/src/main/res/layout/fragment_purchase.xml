@@ -4,17 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6B0597"
     tools:context=".fragments.PurchaseFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#D203E1"
         android:orientation="vertical">
+
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:animationCache="true"
+            app:cardBackgroundColor="@android:color/holo_blue_bright"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/plan_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeTextType="uniform"
+                android:freezesText="true"
+                android:nestedScrollingEnabled="true"
+                android:text="@string/you_are_selected_25_diamond_bdt_25_package"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textColorHighlight="@android:color/black"
+                android:textDirection="firstStrong"
+                android:textIsSelectable="true"
+                android:textScaleX="1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_margin="2dp"
+            android:background="@android:color/holo_red_light" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:animationCache="true"
             app:cardCornerRadius="5dp"
@@ -25,7 +64,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
@@ -37,6 +76,12 @@
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
 
                 <EditText
                     android:layout_width="200dp"
@@ -90,6 +135,12 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
+
                 <EditText
                     android:layout_width="200dp"
                     android:layout_height="40dp"
@@ -112,6 +163,62 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="5dp"
+            android:animationCache="true"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="@string/enter_your_e_mail_id"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/etborder"
+                    android:hint="@string/hello_gmail_com"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="@string/please_type_your_email_address"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
 
         <Button
             android:layout_width="wrap_content"
@@ -122,12 +229,12 @@
             android:backgroundTint="@android:color/holo_blue_bright"
             android:backgroundTintMode="add"
             android:bufferType="editable"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Submit"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
 
