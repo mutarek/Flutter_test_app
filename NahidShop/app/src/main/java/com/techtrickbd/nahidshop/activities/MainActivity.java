@@ -16,6 +16,9 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.techtrickbd.nahidshop.R;
+import com.techtrickbd.nahidshop.fragments.EarnFragment;
+import com.techtrickbd.nahidshop.fragments.HomeFragment;
+import com.techtrickbd.nahidshop.fragments.ProfileFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         View headerView = nav_view.getHeaderView(0);
         imageView = headerView.findViewById(R.id.profiel_image_id);
         username = headerView.findViewById(R.id.profile_users_name);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         nav_view.setCheckedItem(R.id.home_id);
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -50,19 +53,19 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.home_id:
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                         break;
                     case R.id.earn_ID:
-                        /*FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentManager fragmentManager = getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container, new EarmFragment(), "DetailFragment").commit();
-                        fragmentTransaction.addToBackStack(null);*/
+                        fragmentTransaction.replace(R.id.fragment_container, new EarnFragment(), "DetailFragment").commit();
+                        fragmentTransaction.addToBackStack(null);
                         break;
                     case R.id.profile_id:
-                        /*FragmentManager fm = getSupportFragmentManager();
+                        FragmentManager fm = getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
                         ft.replace(R.id.fragment_container, new ProfileFragment(), "DetailFragment").commit();
-                        ft.addToBackStack(null);*/
+                        ft.addToBackStack(null);
                         break;
                     case R.id.exit_id:
                         finish();
