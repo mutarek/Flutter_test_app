@@ -161,6 +161,7 @@ public class FreeFireFragment extends Fragment {
         intent.putExtra("gameid", splayerId);
         intent.putExtra("dimond", diamondrb);
         intent.putExtra("method", methodRB);
+        intent.putExtra("from","Free_Fire");
         startActivity(intent);
     }
 }

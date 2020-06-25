@@ -112,7 +112,11 @@ public class CreationActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        updateUI();
+                        Profile profile = document.toObject(Profile.class);
+                        if (profile.getName() !=null)
+                        {
+                            updateUI();
+                        }
                     } else {
                         Toasty.info(CreationActivity.this, "Please Complete Your Profile");
                     }
