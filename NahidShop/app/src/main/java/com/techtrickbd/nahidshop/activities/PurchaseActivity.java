@@ -28,7 +28,6 @@ import java.util.Date;
 import es.dmoral.toasty.Toasty;
 
 public class PurchaseActivity extends AppCompatActivity {
-
     private String method, diamond, gameid, spayment, strnas, semail, parent;
     private TextView plan;
     private EditText paymentn, trnac, email;
@@ -99,7 +98,7 @@ public class PurchaseActivity extends AppCompatActivity {
         free_fire_model.setPaymentNumber(spayment);
         free_fire_model.setGameid(gameid);
         free_fire_model.setPack(diamond);
-        free_fire_model.setUserEmail(semail);
+        free_fire_model.setEmail(semail);
         free_fire_model.setPaymentTrancID(strnas);
         free_fire_model.setStatus(false);
         free_fire_model.setTimestamp(new Timestamp(new Date()));

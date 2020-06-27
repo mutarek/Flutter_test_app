@@ -117,6 +117,7 @@ public class SignUpActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
                 pinView.setText(code);
                 verifyVerificationCode(code);
+                upDateUi();
             }
         }
 

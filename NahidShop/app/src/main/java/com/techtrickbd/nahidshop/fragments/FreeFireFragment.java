@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -28,8 +26,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.techtrickbd.nahidshop.R;
 import com.techtrickbd.nahidshop.activities.PurchaseActivity;
+import com.techtrickbd.nahidshop.models.Free_Fire_Model;
 import com.techtrickbd.nahidshop.models.Profile;
 import com.techtrickbd.nahidshop.utils.Users_Static;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
@@ -58,6 +60,9 @@ public class FreeFireFragment extends Fragment {
     private RecyclerView recyclerView;
     private String TAG = "free_fire";
     String methodRB, diamondrb;
+    private List<Free_Fire_Model> free_fire_models;
+    //private Free_Fire_History free_fire_history;
+    private Context mContext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -101,12 +106,13 @@ public class FreeFireFragment extends Fragment {
         p3 = view.findViewById(R.id.nagad_rb);
         p4 = view.findViewById(R.id.nwallet_rb);
         recyclerView = view.findViewById(R.id.free_fire_recyller);
-        //free_fire_models = new ArrayList<>();
+        free_fire_models = new ArrayList<>();
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        //initRecyller();
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +142,30 @@ public class FreeFireFragment extends Fragment {
 
     }
 
+    /*private void initRecyller() {
+        db.collection("Free_Fire").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        Free_Fire_Model fireModel = document.toObject(Free_Fire_Model.class);
+                        free_fire_models.add(fireModel);
+                        free_fire_history = new Free_Fire_History(free_fire_models, mContext);
+                        recyclerView.setAdapter(free_fire_history);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }*/
+
     private void checkWallet() {
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -145,7 +175,7 @@ public class FreeFireFragment extends Fragment {
                     Profile profile = document.toObject(Profile.class);
                     Long tk = (long) document.get("tk");
                     if (tk <= 30) {
-                        Toasty.error(getActivity(), "you do not have sufficient Balance", Toast.LENGTH_SHORT).show();
+                        Toasty.error(getContext(), "you do not have sufficient Balance", Toast.LENGTH_SHORT).show();
                     } else {
                         googingtoPurchase();
                     }
@@ -161,7 +191,7 @@ public class FreeFireFragment extends Fragment {
         intent.putExtra("gameid", splayerId);
         intent.putExtra("dimond", diamondrb);
         intent.putExtra("method", methodRB);
-        intent.putExtra("from","Free_Fire");
+        intent.putExtra("from", "Free_Fire");
         startActivity(intent);
     }
 }
