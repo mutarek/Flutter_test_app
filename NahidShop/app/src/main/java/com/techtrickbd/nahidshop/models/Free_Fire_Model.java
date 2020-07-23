@@ -10,11 +10,13 @@ public class Free_Fire_Model {
     private String paymentTrancID;
     private Timestamp timestamp;
     private boolean status;
+    private String parent;
+    private String uid;
 
     public Free_Fire_Model() {
     }
 
-    public Free_Fire_Model(String paymentNumber, String gameid, String pack, String email, String paymentTrancID, Timestamp timestamp, boolean status) {
+    public Free_Fire_Model(String paymentNumber, String gameid, String pack, String email, String paymentTrancID, Timestamp timestamp, boolean status, String parent, String uid) {
         this.paymentNumber = paymentNumber;
         this.gameid = gameid;
         this.pack = pack;
@@ -22,6 +24,8 @@ public class Free_Fire_Model {
         this.paymentTrancID = paymentTrancID;
         this.timestamp = timestamp;
         this.status = status;
+        this.parent = parent;
+        this.uid = uid;
     }
 
     public String getPaymentNumber() {
@@ -78,5 +82,21 @@ public class Free_Fire_Model {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getParent() {
+        return parent;
+    }
+
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

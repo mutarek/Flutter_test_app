@@ -1,19 +1,35 @@
 package com.techtrickbd.nahidshop.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.techtrickbd.nahidshop.R;
+import com.techtrickbd.nahidshop.models.Eara_Model;
+import com.techtrickbd.nahidshop.models.Profile;
+import com.techtrickbd.nahidshop.models.Slider_Model;
+import com.techtrickbd.nahidshop.utils.Static_Image;
 
 public class SliderAdapterExample extends
         SliderViewAdapter<SliderAdapterExample.SliderAdapterVH> {
-
     private Context context;
     private int mCount;
 
@@ -34,23 +50,13 @@ public class SliderAdapterExample extends
 
     @Override
     public void onBindViewHolder(SliderAdapterVH viewHolder, final int position) {
-
-
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
         switch (position) {
             case 0:
                 /*viewHolder.textViewDescription.setText("Item 0");
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.sliderone)
+                        .load(Static_Image.imageone)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -59,7 +65,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(Static_Image.imagetwo)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -68,7 +74,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(Static_Image.imagethree)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -78,7 +84,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.test)
+                        .load(Static_Image.imagefour)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -88,7 +94,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextSize(20);
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.slider5)
+                        .load(Static_Image.imagefive)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -97,7 +103,7 @@ public class SliderAdapterExample extends
                 viewHolder.textViewDescription.setTextColor(Color.BLACK);
                 viewHolder.textViewDescription.setText("Item Five");*/
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.slider5)
+                        .load(Static_Image.imagefive)
                         .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
@@ -105,6 +111,7 @@ public class SliderAdapterExample extends
         }
 
     }
+
 
     @Override
     public int getCount() {

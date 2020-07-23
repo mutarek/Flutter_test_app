@@ -9,18 +9,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.techtrickbd.nahidshop.R;
+import com.techtrickbd.nahidshop.fragments.DevsFragment;
 import com.techtrickbd.nahidshop.fragments.EarnFragment;
 import com.techtrickbd.nahidshop.fragments.HomeFragment;
 import com.techtrickbd.nahidshop.fragments.ProfileFragment;
+import com.techtrickbd.nahidshop.fragments.SupportFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -70,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.exit_id:
                         finish();
                         break;
+                    case R.id.contact_id: {
+                        FragmentManager fm2 = getSupportFragmentManager();
+                        FragmentTransaction ft3 = fm2.beginTransaction();
+                        ft3.replace(R.id.fragment_container, new SupportFragment(), "DetailFragment").commit();
+                        ft3.addToBackStack(null);
+                        break;
+                    }
+                    case R.id.devs_id:
+                        FragmentManager fm2 = getSupportFragmentManager();
+                        FragmentTransaction ft3 = fm2.beginTransaction();
+                        ft3.replace(R.id.fragment_container, new DevsFragment(), "DetailFragment").commit();
+                        ft3.addToBackStack(null);
+                        break;
+
                 }
 
                 drawerLayout.closeDrawer(GravityCompat.START);

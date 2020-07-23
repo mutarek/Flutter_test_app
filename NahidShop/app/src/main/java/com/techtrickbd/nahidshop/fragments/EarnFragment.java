@@ -29,15 +29,7 @@ public class EarnFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_earn, container, false);
-        swipeRefreshLayout = view.findViewById(R.id.swipeLayout);
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Toasty.success(getActivity(), "Showing Ads", Toast.LENGTH_LONG).show();
-            }
-
-        });
 
         return view;
     }

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".activities.SignUpActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <ImageView
+            android:id="@+id/undraLogin"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/undraw_mobile_login_ikmv" />
+
+        <LinearLayout
+            android:id="@+id/admin_Linerar"
+            android:layout_width="match_parent"
+            android:layout_height="268dp"
+            android:layout_below="@id/undraLogin"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/admin_email_ET"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_gravity="start"
+                android:layout_margin="6dp"
+                android:background="@drawable/login_et_shape"
+                android:hint="Email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <EditText
+                android:id="@+id/admin_pass_ET"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:background="@drawable/login_et_shape"
+                android:hint="Password"
+                android:imeOptions="actionDone"
+                android:inputType="textWebPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <Button
+                android:id="@+id/loginBTN"
+                android:layout_width="197dp"
+                android:layout_height="56dp"
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:background="@drawable/loginbtn"
+                android:padding="10dp"
+                android:text="Sign Up"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:letterSpacing=".1"
+                android:padding="10dp"
+                android:text="Terms of use!"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/agent_Linerar"
+            android:layout_width="match_parent"
+            android:layout_height="268dp"
+            android:layout_below="@id/undraLogin"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/agent_email_ET"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_gravity="start"
+                android:layout_margin="6dp"
+                android:background="@drawable/login_et_shape"
+                android:hint="Email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <EditText
+                android:id="@+id/agent_pass_ET"
+                android:layout_width="300dp"
+                android:layout_height="57dp"
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:background="@drawable/login_et_shape"
+                android:hint="Password"
+                android:imeOptions="actionDone"
+                android:inputType="textWebPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <Button
+                android:id="@+id/agent_loginBTN"
+                android:layout_width="197dp"
+                android:layout_height="56dp"
+                android:layout_gravity="end"
+                android:layout_margin="6dp"
+                android:background="@drawable/loginbtn"
+                android:padding="10dp"
+                android:text="Sign Up"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:letterSpacing=".1"
+                android:padding="10dp"
+                android:text="Terms of use!"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

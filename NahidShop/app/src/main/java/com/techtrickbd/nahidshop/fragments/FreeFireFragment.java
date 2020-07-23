@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -14,18 +15,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.techtrickbd.nahidshop.R;
 import com.techtrickbd.nahidshop.activities.PurchaseActivity;
+import com.techtrickbd.nahidshop.adapters.Free_Fire_Adapter;
 import com.techtrickbd.nahidshop.models.Free_Fire_Model;
 import com.techtrickbd.nahidshop.models.Profile;
 import com.techtrickbd.nahidshop.utils.Users_Static;
@@ -52,17 +59,15 @@ public class FreeFireFragment extends Fragment {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference userRef;
-    private DocumentReference free_fire = db
-            .collection("free_fire").document();
-    /*private List<Free_fire_model> free_fire_models;
-    private Free_fire_adapter free_fire_adapter;*/
-    private Context context;
+    private CollectionReference free_fire;
     private RecyclerView recyclerView;
     private String TAG = "free_fire";
     String methodRB, diamondrb;
     private List<Free_Fire_Model> free_fire_models;
-    //private Free_Fire_History free_fire_history;
+    private Free_Fire_Adapter free_fire_history;
     private Context mContext;
+    private ProgressBar contentLoadingProgressBar;
+    private DocumentReference priceRef;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,12 +112,14 @@ public class FreeFireFragment extends Fragment {
         p4 = view.findViewById(R.id.nwallet_rb);
         recyclerView = view.findViewById(R.id.free_fire_recyller);
         free_fire_models = new ArrayList<>();
+        contentLoadingProgressBar = view.findViewById(R.id.free_fire_progress);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //initRecyller();
+        initPriceRange();
+        initRecyller();
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +137,7 @@ public class FreeFireFragment extends Fragment {
                     RadioButton paymentMethodRB = paymentRadioGroup.findViewById(paymentSelectedID);
                     methodRB = paymentMethodRB.getText().toString();
                     diamondrb = diamondRB.getText().toString();
-                    if (methodRB.contains("N-Wallet")) {
+                    if (methodRB.contains("N-Pay")) {
                         checkWallet();
                     } else {
                         googingtoPurchase();
@@ -142,29 +149,65 @@ public class FreeFireFragment extends Fragment {
 
     }
 
-    /*private void initRecyller() {
-        db.collection("Free_Fire").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+    private void initPriceRange() {
+        priceRef = db.collection("Price_Range").document("Free_Fire");
+        priceRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        Free_Fire_Model fireModel = document.toObject(Free_Fire_Model.class);
-                        free_fire_models.add(fireModel);
-                        free_fire_history = new Free_Fire_History(free_fire_models, mContext);
-                        recyclerView.setAdapter(free_fire_history);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                        recyclerView.setLayoutManager(linearLayoutManager);
+                    if (document != null) {
+                        rb1.setText(document.get("1").toString());
+                        rb2.setText(document.get("2").toString());
+                        rb3.setText(document.get("3").toString());
+                        rb4.setText(document.get("4").toString());
+                        rb5.setText(document.get("5").toString());
+                        rb6.setText(document.get("6").toString());
+                        rb7.setText(document.get("7").toString());
+                        rb8.setText(document.get("8").toString());
                     } else {
-                        Log.d(TAG, "No such document");
+                        Toast.makeText(getContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+
                 }
             }
         });
-    }*/
+    }
+
+    private void initRecyller() {
+        free_fire = db.collection("Free_Fire");
+        free_fire
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                Free_Fire_Model fireModel = document.toObject(Free_Fire_Model.class);
+                                free_fire_models.add(fireModel);
+                                free_fire_history = new Free_Fire_Adapter(free_fire_models, mContext);
+                                recyclerView.setAdapter(free_fire_history);
+                                /*HorizontalLayout
+                                        = new LinearLayoutManager(
+                                        getActivity(),
+                                        LinearLayoutManager.HORIZONTAL,
+                                        false);
+                                recyclerView.setLayoutManager(HorizontalLayout);*/
+                                LinearLayoutManager horizontalLayoutManagaer = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+                                recyclerView.setLayoutManager(horizontalLayoutManagaer);
+                                contentLoadingProgressBar.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
+
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+    }
 
     private void checkWallet() {
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -172,7 +215,6 @@ public class FreeFireFragment extends Fragment {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    Profile profile = document.toObject(Profile.class);
                     Long tk = (long) document.get("tk");
                     if (tk <= 30) {
                         Toasty.error(getContext(), "you do not have sufficient Balance", Toast.LENGTH_SHORT).show();
@@ -193,5 +235,11 @@ public class FreeFireFragment extends Fragment {
         intent.putExtra("method", methodRB);
         intent.putExtra("from", "Free_Fire");
         startActivity(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        free_fire_models.clear();
     }
 }

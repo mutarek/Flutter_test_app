@@ -51,6 +51,68 @@
             android:layout_margin="2dp"
             android:background="@android:color/holo_red_light" />
 
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:animationCache="true"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="Tips:"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_red_light" />
+
+                <TextView
+                    android:id="@+id/payment_Number_ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="2. Reference Should be your name"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:text="3. Fill The from and submit The form"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,14 +150,13 @@
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_margin="1dp"
-                    android:background="@drawable/etborder"
-                    android:hint="123456789"
+                    android:background="@drawable/newetshape"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/black" />
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -148,7 +209,7 @@
                     android:layout_height="40dp"
                     android:layout_margin="1dp"
                     android:background="@drawable/etborder"
-                    android:hint="123456789"
+                    android:hint=""
                     android:inputType="textCapCharacters"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
@@ -203,7 +264,7 @@
                     android:layout_height="40dp"
                     android:layout_margin="1dp"
                     android:background="@drawable/etborder"
-                    android:hint="@string/hello_gmail_com"
+                    android:hint=""
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
@@ -241,23 +302,35 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        <TextView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="160dp"
             android:layout_margin="5dp"
-            android:autoSizeTextType="uniform"
-            android:freezesText="true"
-            android:nestedScrollingEnabled="true"
-            android:text="@string/if_your_gyus_facing_any_problem_during_payment_or_anykind_of_payment_issue_please_call_for_live_support_012345678"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textColorHighlight="@android:color/white"
-            android:textDirection="firstStrong"
-            android:textIsSelectable="true"
-            android:textScaleX="1.5"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:animationCache="true"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/support_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeTextType="uniform"
+                android:freezesText="true"
+                android:nestedScrollingEnabled="true"
+                android:text="@string/if_your_gyus_facing_any_problem_during_payment_or_anykind_of_payment_issue_please_call_for_live_support_012345678"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textColorHighlight="@android:color/white"
+                android:textDirection="firstStrong"
+                android:textIsSelectable="true"
+                android:textScaleX="1.5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.card.MaterialCardView>
 
 
     </LinearLayout>

@@ -117,7 +117,6 @@ public class SignUpActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
                 pinView.setText(code);
                 verifyVerificationCode(code);
-                upDateUi();
             }
         }
 
@@ -145,12 +144,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
-                            btnNext.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    upDateUi();
-                                }
-                            });
+                            upDateUi();
 
                         } else {
                             String message = "Somthing is wrong, we will fix it soon...";

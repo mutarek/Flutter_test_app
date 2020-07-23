@@ -37,6 +37,7 @@ public class CreationActivity extends AppCompatActivity {
     private Button done;
     String sName, sEmail;
     private ProgressBar p;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +75,12 @@ public class CreationActivity extends AppCompatActivity {
         if (sName.isEmpty() || sEmail.isEmpty()) {
             Toasty.error(this, "Please Complete All the things", Toast.LENGTH_SHORT).show();
         } else {
-            p.setVisibility(View.VISIBLE);
-            completeProfile();
+            if (emailET.getText().toString().trim().matches(emailPattern)) {
+                p.setVisibility(View.VISIBLE);
+                completeProfile();
+            } else {
+                Toasty.error(this, "Invalid email address", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -113,8 +118,7 @@ public class CreationActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Profile profile = document.toObject(Profile.class);
-                        if (profile.getName() !=null)
-                        {
+                        if (profile.getName() != null) {
                             updateUI();
                         }
                     } else {
