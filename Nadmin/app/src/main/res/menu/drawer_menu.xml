@@ -6,4 +6,7 @@
     <item
         android:id="@+id/pending_id"
         android:title="Pending" />
+    <item
+        android:id="@+id/paid_id"
+        android:title="Paid" />
 </menu>

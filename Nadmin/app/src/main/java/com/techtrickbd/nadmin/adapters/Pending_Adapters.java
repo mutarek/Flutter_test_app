@@ -13,7 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.techtrickbd.nadmin.R;
 import com.techtrickbd.nadmin.interfaces.Pending_Click;
 import com.techtrickbd.nadmin.models.Pending_models;
@@ -21,12 +26,18 @@ import com.techtrickbd.nadmin.models.Pending_models;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 public class Pending_Adapters extends RecyclerView.Adapter<Pending_Adapters.PendingViewHolder> {
     private List<Pending_models> pending_models;
     private Context context;
     private Pending_Click pending_click;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DocumentReference d;
 
     public Pending_Adapters(List<Pending_models> pending_models, Context context, Pending_Click pending_click) {
         this.pending_models = pending_models;
@@ -62,6 +73,29 @@ public class Pending_Adapters extends RecyclerView.Adapter<Pending_Adapters.Pend
         LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(mili), ZoneId.of(tz));
         holder.date.setText(localDateTime.toLocalDate().toString());
         holder.parent.setText(pending_models.get(position).getParent());
+        holder.paid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("ps", true);
+                db.collection("Orders").document(pending_models.get(position).getId())
+                        .set(data, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            removeItem(position);
+                            Toasty.success(v.getContext(), "Item Is Updated", Toasty.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    private void removeItem(int position) {
+        pending_models.remove(pending_models.get(position));
+        notifyDataSetChanged();
+
     }
 
     @Override
