@@ -15,6 +15,9 @@ public class Paid_Models {
     private String server;
     private boolean ps;
 
+    public Paid_Models() {
+    }
+
     public Paid_Models(String id, String paymentNumber, String gameid, String pack, String email, String paymentTrancID, Timestamp timestamp, boolean status, String parent, String server, boolean ps) {
         this.id = id;
         this.paymentNumber = paymentNumber;
