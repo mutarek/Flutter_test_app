@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "413334698649",
+    "firebase_url": "https://finalproject-f8dd3.firebaseio.com",
+    "project_id": "finalproject-f8dd3",
+    "storage_bucket": "finalproject-f8dd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413334698649:android:5ba5f5181cebbeb5a19608",
+        "android_client_info": {
+          "package_name": "com.techtrickbd.learnkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413334698649-l2t0rnm1fecbgv6qt2ttjp6sh4csjq87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAshtar9_5dztzNprtrePSwA432943eoIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413334698649-l2t0rnm1fecbgv6qt2ttjp6sh4csjq87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
